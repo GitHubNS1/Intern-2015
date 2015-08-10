@@ -8,10 +8,7 @@ while i < len(problem_number):
 	url = "http://www.artofproblemsolving.com/wiki/index.php/2014_AMC_8_Problems"
 	htmlfile = urllib.urlopen(url)
 	htmltext = htmlfile.read()
-
-	regex = '<h2><span class="mw-headline" id="Problem_' + problem_number[i] + '">Problem ' + problem_number[i] + '</span></h2><p>(.+?)</p>'
-	pattern = re.compile(regex)
-	problem = re.findall(pattern, htmltext)
+	problem = re.findall("<p>(.*?)</p>", htmltext, re.DOTALL)
 
 	i += 1
 	print problem
