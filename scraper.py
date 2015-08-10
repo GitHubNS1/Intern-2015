@@ -5,10 +5,13 @@ problem_number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
 i = 0
 
 while i < len(problem_number):
-	url = "http://www.artofproblemsolving.com/wiki/index.php/2014_AMC_8_Problems"
+
+	url = "http://www.artofproblemsolving.com/wiki/index.php/2014_AMC_8_Problems/Problem_" + solution_number[i]
 	htmlfile = urllib.urlopen(url)
 	htmltext = htmlfile.read()
+	
 	problem = re.findall("<p>(.*?)</p>", htmltext, re.DOTALL)
 
 	i += 1
+
 	print problem
